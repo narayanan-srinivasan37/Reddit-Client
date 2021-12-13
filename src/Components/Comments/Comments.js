@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import CommentsRow from "../CommentsRow/CommentsRow";
 
 import "./Comments.css";
-import CommentsLayout from "../SkeletonFolder/CommentsLayout/CommentsLayout";
+
 const Comment = (props) => {
   const [Commentdata, setCommentData] = useState([]);
   useEffect(() => {

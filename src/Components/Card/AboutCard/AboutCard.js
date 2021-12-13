@@ -7,7 +7,7 @@ import { FaBirthdayCake } from "react-icons/fa";
 import "./AboutCard.css";
 const AboutCard = (props) => {
   const dispatch = useDispatch();
-  const { isLoading, isError, subredditaboutData } = useSelector(
+  const { isLoading,subredditaboutData } = useSelector(
     (state) => state.subredditAbout
   );
   useEffect(() => {

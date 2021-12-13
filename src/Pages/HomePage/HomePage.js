@@ -6,7 +6,7 @@ import { getAllPosts } from "../../ReduxStore/Reducers/PostsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import CardLayout from "../../Components/SkeletonFolder/Card/CardLayout";
 import ErrorCard from "../../Components/Card/ErrorCard/ErrorCard";
-const HomePage = (props) => {
+const HomePage = () => {
   const dispatch = useDispatch();
   const pathname = useParams();
   const { isLoading, isError, postsData, error } = useSelector(

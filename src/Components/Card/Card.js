@@ -9,7 +9,7 @@ import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ModeCommentIcon from "@material-ui/icons/ModeComment";
 import { numberFormat } from "../../Helper/NumberFormat";
-import CardLayout from "../SkeletonFolder/Card/CardLayout";
+
 const Card = (props) => {
   let [shouldPlay, updatePlayState] = useState(false);
   let [unmute, updatemuteState] = useState(true);

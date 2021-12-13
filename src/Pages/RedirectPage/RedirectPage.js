@@ -3,7 +3,6 @@ import Button from "@mui/material/Button";
 import {Link} from 'react-router-dom'
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import "./RedirectPage.css";
-import { ReactComponent as NotFound } from "../../assets/undraw_warning_cyit.svg";
 const RedirectPage = () => {
   return (
     <div id="notfound">

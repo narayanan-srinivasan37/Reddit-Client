@@ -7,7 +7,6 @@ const ComponentLayout = (props) => {
   return (
     <div>
       <NavBar />
-   
       <main className='main-content'>
           <section className='section'>
               {props.children}

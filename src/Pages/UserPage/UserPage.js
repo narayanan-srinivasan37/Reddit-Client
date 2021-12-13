@@ -6,7 +6,7 @@ import ComponentLayout from "../../Components/ComponentLayout/ComponentLayout";
 import Post from "../../Components/Post/Post";
 import CardLayout from "../../Components/SkeletonFolder/Card/CardLayout";
 import ErrorCard from "../../Components/Card/ErrorCard/ErrorCard";
-const UserPage = (props) => {
+const UserPage = () => {
   const dispatch = useDispatch();
   const pathname = useParams();
   const { isLoading, isError, userpostsData, error } = useSelector(

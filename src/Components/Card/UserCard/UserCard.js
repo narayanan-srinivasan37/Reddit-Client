@@ -9,7 +9,7 @@ import { numberFormat } from "../../../Helper/NumberFormat";
 
 const UserCard = (props) => {
   const dispatch = useDispatch();
-  const { isLoading, isError, useraboutData } = useSelector(
+  const { isLoading, useraboutData } = useSelector(
     (state) => state.userAbout
   );
 

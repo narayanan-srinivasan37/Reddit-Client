@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import SubRowDisplay from "../SubRowDisplay/SubRowDisplay";
 import "./SubReddit.css";
 import { getAllSubReddit } from "../../ReduxStore/Reducers/SubRedditSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { SubRedditLayout } from "../SkeletonFolder/SubReddits/SubRedditLayout";
 import FloatingBar from "../FloatingBar/FloatingBar";
-export default function SubReddit(props) {
-  const { isLoading, subredditData, isError, error } = useSelector((state) => {
+export default function SubReddit() {
+  const { isLoading, subredditData } = useSelector((state) => {
     return state.subReddit;
   });
 

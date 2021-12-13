@@ -49,7 +49,7 @@ const styles = makeStyles((theme) => ({
     textDecoration: "none",
   },
 }));
-const FilterSide = (props) => {
+const FilterSide = () => {
   const classes = styles();
 
   return (

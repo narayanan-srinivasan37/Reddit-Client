@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import AsyncSelect from "react-select/async";
-import { components, DropdownIndicatorProps } from "react-select";
+import { components} from "react-select";
 import { redditSearch } from "../../API_Calls/RedditApiCalls";
 import { HiOutlineSearch } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
-import { numberFormat } from "../../Helper/NumberFormat";
+
 import "./NavBar.css";
 import SubRowDisplay from "../SubRowDisplay/SubRowDisplay";
 const DropdownIndicator = (props) => {
