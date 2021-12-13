@@ -1,0 +1,9 @@
+
+@media only screen and (max-width: 900px) {
+  .post-container {
+    margin: 10px;
+    display: block;
+  width: 100%;
+  position: relative;
+  }
+}

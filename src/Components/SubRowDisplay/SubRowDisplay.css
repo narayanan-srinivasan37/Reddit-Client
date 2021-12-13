@@ -1,0 +1,30 @@
+.display-icon {
+  border: 2px solid;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+  
+}
+
+.sub-row-display {
+  display: flex;
+  padding: 5px 5px;
+  margin-top: 2px;
+  width: 100%;
+  min-height: 50px;
+flex-direction: row;
+
+}
+.display-text {
+  display: block;
+  margin: 1px;
+  text-align: left;
+  line-height: 0.5rem;
+  padding-left: 1rem;
+}
+
+.display-anchor:hover{
+    background-color:rgb(233, 233, 233);
+ 
+
+}

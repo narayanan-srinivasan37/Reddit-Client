@@ -1,0 +1,42 @@
+.subreddit-about {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  max-width: "100%";
+  
+}
+.subreddit-about p{
+    padding: 0px 5px;
+    text-align: justify;
+}
+.about-subscribers {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.3rem;
+  align-items: flex-start;
+  font-weight: 600;
+  margin-right: 30%;
+  justify-content: flex-start;
+}
+.about-subscribers p{
+  padding: 0px 0px;
+  text-align:left;
+}
+.about-footer {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+}
+.about-title {
+  background-color: #3d5af1;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+}
+.about-section{
+border-bottom: 1px solid rgb(202, 201, 201);
+
+}

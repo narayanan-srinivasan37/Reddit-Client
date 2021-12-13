@@ -1,0 +1,45 @@
+.user-about {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  max-width: "100%";
+  border-radius: 10px;
+
+}
+
+.banner-image {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  height: 100px;
+  background-color: cadetblue;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.user-icon {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+}
+.user-description {
+  margin: 0 5px;
+  font-size: small;
+}
+.user-midsection {
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  padding-bottom: 10px;
+  justify-content: space-evenly;
+}
+.karma {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.3rem;
+  align-items: flex-start;
+  font-weight: 600;
+}

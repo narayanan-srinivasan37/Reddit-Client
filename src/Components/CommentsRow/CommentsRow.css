@@ -1,0 +1,32 @@
+.comments-row {
+  padding: 5px 5px;
+  display: grid;
+  grid-template-rows: 2fr 0.1fr;
+  grid-area: auto;
+  word-wrap: break-word;
+}
+.comment-upvote {
+  border-top: 1px solid black;
+  display: flex;
+
+  justify-items: center;
+  align-items: center;
+}
+
+.comment-author {
+  display: flex;
+  font-size: 1rem;
+  font-weight: bold;
+  justify-content: flex-start;
+}
+
+.comment-text {
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  font-size: 1.02rem;
+  font-weight: 400;
+}
+.comment-author span {
+  color: grey;
+  font-weight: lighter;
+}

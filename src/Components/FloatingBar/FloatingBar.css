@@ -1,0 +1,33 @@
+.display-icon {
+  border: 2px solid;
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+}
+.scroll-bar-view {
+  display: flex;
+  padding: 5px 5px;
+  margin-top: 2px;
+  width: 80px;
+  min-height: 50px;
+  flex-direction: column;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
+  float: left;
+}
+.scroll-bar-view p{
+    letter-spacing: .01em;
+    max-width: 74px;
+    display: block;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+.scroll-bar-view:hover {
+  background-color: rgb(233, 233, 233);
+}

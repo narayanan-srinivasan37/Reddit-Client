@@ -1,0 +1,14 @@
+.comments-row {
+    border-left: 2px solid burlywood;
+    box-shadow: 0 0 10px 0  rgb(163, 162, 162);
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    max-width: 100%;
+   
+  }
+  .comment-author {
+    display: flex;
+    font-size: 1rem;
+    font-weight: bold;
+    justify-content: flex-start;
+  }

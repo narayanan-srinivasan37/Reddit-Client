@@ -1,0 +1,51 @@
+.sub-reddit-title p {
+  text-transform: uppercase;
+  padding-left: 3px;
+}
+.sub-reddit {
+
+  right: 5px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  max-width: 100%;
+ 
+  height: fit-content;
+  margin-top: 10px;
+
+}
+
+.sub-reddit::-webkit-scrollbar {
+  width: 5px;
+  height: 0;
+}
+.sub-reddit::-webkit-scrollbar-track {
+  background: rgb(241, 241, 241); /* color of the tracking area */
+}
+
+.sub-reddit::-webkit-scrollbar-thumb {
+  background-color: black;
+}
+
+.floating-bar {
+  display:inline-block;
+}
+@media only screen and (max-width: 900px) {
+  .sub-reddit {
+    display: none;
+  }
+  .floating-bar {
+    display:flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  
+}
+@media only screen and (min-width: 900px) {
+  .floating-bar {
+    display: none;
+  }
+}
+
+.floating-bar::-webkit-scrollbar {
+  display: none;
+}
