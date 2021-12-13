@@ -1,4 +1,4 @@
-# Reddit Client App
+# Reddit Minimal App
 
 ![demo](public/reddit_screenshot_1.png)
 ![demo](public/reddit_screenshot_2.png)
