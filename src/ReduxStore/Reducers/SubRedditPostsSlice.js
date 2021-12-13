@@ -1,7 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { subredditPosts } from "../../API_Calls/RedditApiCalls";
-import { getAllPosts } from "./PostsSlice";
-import { getSubRedditSlice } from "./SubRedditSlice";
 
 export const getSubRedditPosts = createAsyncThunk(
   "subreddit/allPosts",

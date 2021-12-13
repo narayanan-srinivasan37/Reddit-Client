@@ -9,13 +9,11 @@ import { numberFormat } from "../../../Helper/NumberFormat";
 
 const UserCard = (props) => {
   const dispatch = useDispatch();
-  const { isLoading, useraboutData } = useSelector(
-    (state) => state.userAbout
-  );
+  const { isLoading, useraboutData } = useSelector((state) => state.userAbout);
 
   useEffect(() => {
     dispatch(getuserAbout(props.username));
-  }, [props]);
+  }, []);
   if (isLoading) {
     return <div>Loading...</div>;
   }

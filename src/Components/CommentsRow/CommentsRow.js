@@ -3,6 +3,7 @@ import "./CommentsRow.css";
 import PublishIcon from "@material-ui/icons/Publish";
 import { numberFormat } from "../../Helper/NumberFormat";
 import { getTimeDate, postCreation } from "../../Helper/time";
+import { Link } from "react-router-dom";
 const CommentsRow = (props) => {
   const comment = props.data;
   function get_date(date) {
@@ -13,7 +14,14 @@ const CommentsRow = (props) => {
     <div className="comments-row">
       <div>
         <p className="comment-author">
-          {comment.author} &nbsp;<span> {get_date(comment.created)}</span>
+          <Link
+            style={{ textDecoration: "none", color: "black" }}
+            to={`/user/${comment.author}`}
+          >
+            {" "}
+            {comment.author}
+          </Link>{" "}
+          &nbsp;<span> {get_date(comment.created)}</span>
         </p>
 
         <p className="comment-text">{comment.text}</p>
