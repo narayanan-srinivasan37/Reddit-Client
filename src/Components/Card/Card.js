@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactPlayer from "react-player/lazy";
 import "./Card.css";
+import Avatar from "@mui/material/Avatar";
 import { BsLink } from "react-icons/bs";
 import { Waypoint } from "react-waypoint";
 import { Link } from "react-router-dom";
@@ -17,9 +18,9 @@ const Card = (props) => {
 
   useEffect(() => {
     setData(props.data);
- 
   }, [props.data]);
-  const wrapper = useRef();
+  let videoElement = useRef();
+
   const onClickOnVideo = () => {
     updatemuteState(!unmute);
   };
@@ -31,21 +32,22 @@ const Card = (props) => {
 
   let handleEnterViewport = function () {
     updatePlayState(true);
+    
   };
   let handleExitViewport = function () {
     updatePlayState(false);
+    
   };
-
   const thumbnail = () => {
     const pattern = /(jpg|jpeg|png|gif|bmp)/;
 
     const image = new Image();
-    image.src = data.thumbnail;
+    image.src = data.url;
 
-    if (data.thumbnail.match(pattern) && image.height !== 0) {
-      return <img className="card-img" src={data.thumbnail} alt="none" />;
+    if (data.url.match(pattern) && image.height !== 0) {
+      return <Avatar alt={data.title} src={data.url} />;
     } else {
-      return <div className="card-h4">{data.author[0]}</div>;
+      return <Avatar>{data.author[0]}</Avatar>;
     }
   };
   const sectiondata = () => {
@@ -91,24 +93,28 @@ const Card = (props) => {
     }
 
     if (data.post_hint === "hosted:video") {
-      const video_url = data.hsl_video.reddit_video.hls_url;
+      const video_url = data.hsl_video.reddit_video.fallback_url;
+
       return (
         <Waypoint
-          ref={wrapper}
-          onEnter={handleEnterViewport}
-          onLeave={handleExitViewport}
+          
+          onEnter={()=>{videoElement.play(); console.log(videoElement)}}
+          onLeave={()=>videoElement.pause()}
           topOffset="30%"
           bottomOffset="50%"
         >
           <div className="section-video" onClick={onClickOnVideo}>
-            <ReactPlayer
-              height="100%"
-              width="100%"
-              volume={1}
+            <video
+              style={{ margin: "auto", maxHeight: " 70vh", maxWidth: "560px" }}
+              preload="auto"
+              ref= {(video)=>{videoElement=video; }}
               muted={unmute}
-              playing={shouldPlay}
-              url={video_url}
-            />
+              src={video_url}
+              autoPlay
+              type="video/mp4"
+            >
+              <source src={video_url} type="video/mp4" />
+            </video>
           </div>
         </Waypoint>
       );
@@ -156,7 +162,7 @@ const Card = (props) => {
       );
     }
   };
- 
+
   return (
     <div>
       {data && (

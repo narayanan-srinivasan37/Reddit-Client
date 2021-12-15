@@ -59,7 +59,7 @@ const SearchBar = () => {
     callback(result);
   };
   return (
-    <div style={{ width: "50%" }}>
+    <div style={{ width: "100%" }}>
       <AsyncSelect
         loadOptions={loadOptions}
         onInputChange={handleChange}

@@ -25,6 +25,7 @@
   white-space: pre-wrap;
   font-size: 1.02rem;
   font-weight: 400;
+  word-break: break-word;
 }
 .comment-author span {
   color: grey;

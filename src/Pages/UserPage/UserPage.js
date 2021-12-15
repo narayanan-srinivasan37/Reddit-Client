@@ -15,7 +15,7 @@ const UserPage = () => {
   useEffect(() => {
     dispatch(getuserPosts(pathname.username));
     return () => {};
-  }, []);
+  }, [pathname.username]);
   if (isError) {
     return <ErrorCard error={error.message} />;
   }

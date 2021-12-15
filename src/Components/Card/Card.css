@@ -2,6 +2,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50px;
+  object-fit: cover;
 }
 
 .card-h4 {
@@ -101,8 +102,9 @@
 .section-video {
   display: flex;
   width: 70%;
-  height: 500px;
+ max-height:'70vh' ;
   margin: auto;
+  height: 100%;
 }
 
 .upVote,

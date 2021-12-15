@@ -18,7 +18,7 @@ const SubRedditPage = () => {
     dispatch(getSubRedditPosts(pathname.subreddittype));
 
     return () => {};
-  }, []);
+  }, [pathname.subreddittype]);
   if (isError) {
     return <ErrorCard error={error.message} />;
   }

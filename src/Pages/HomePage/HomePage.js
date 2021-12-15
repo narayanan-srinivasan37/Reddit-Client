@@ -15,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(getAllPosts(pathname.filtertype));
     return () => {};
-  },[] );
+  },[pathname.filtertype] );
 
   if (isError) {
    

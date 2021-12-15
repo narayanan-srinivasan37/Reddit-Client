@@ -8,7 +8,7 @@ const ComponentLayout = (props) => {
     <div>
       <NavBar />
       <main className='main-content'>
-          <section className='section'>
+          <section className='section-content'>
               {props.children}
           </section>
           <SideBar {...props.sideBarProps}/>
