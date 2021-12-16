@@ -62,7 +62,6 @@ const Card = (props) => {
       return <img className="section-image" src={data.url} alt="none" />;
     }
     if (data.isGallery !== undefined) {
-      console.log(data);
     }
 
     if (data.post_hint === undefined && data.selfText.length !== 0) {
