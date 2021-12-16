@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/reddit-minimal/static/css/main.a98d4de1.chunk.css",
-    "main.js": "/reddit-minimal/static/js/main.a2e6d550.chunk.js",
-    "main.js.map": "/reddit-minimal/static/js/main.a2e6d550.chunk.js.map",
+    "main.js": "/reddit-minimal/static/js/main.c0077e35.chunk.js",
+    "main.js.map": "/reddit-minimal/static/js/main.c0077e35.chunk.js.map",
     "runtime-main.js": "/reddit-minimal/static/js/runtime-main.42fa4089.js",
     "runtime-main.js.map": "/reddit-minimal/static/js/runtime-main.42fa4089.js.map",
     "static/js/2.a3b71db7.chunk.js": "/reddit-minimal/static/js/2.a3b71db7.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.42fa4089.js",
     "static/js/2.a3b71db7.chunk.js",
     "static/css/main.a98d4de1.chunk.css",
-    "static/js/main.a2e6d550.chunk.js"
+    "static/js/main.c0077e35.chunk.js"
   ]
 }
