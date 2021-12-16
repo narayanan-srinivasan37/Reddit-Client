@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactPlayer from "react-player/lazy";
 import "./Card.css";
+import Hls from "hls.js";
 import Avatar from "@mui/material/Avatar";
 import { BsLink } from "react-icons/bs";
 import { Waypoint } from "react-waypoint";
@@ -15,11 +16,20 @@ const Card = (props) => {
   let [shouldPlay, updatePlayState] = useState(false);
   let [unmute, updatemuteState] = useState(true);
   let [data, setData] = useState(null);
+  let videoElement = useRef();
 
+  const hls = new Hls();
   useEffect(() => {
     setData(props.data);
   }, [props.data]);
-  let videoElement = useRef();
+
+  useEffect(() => {
+    if (videoElement.current !== undefined) {
+      const video_url = data.hsl_video.reddit_video.hls_url;
+      hls.loadSource(video_url);
+      hls.attachMedia(videoElement.current);
+    }
+  });
 
   const onClickOnVideo = () => {
     updatemuteState(!unmute);
@@ -29,15 +39,6 @@ const Card = (props) => {
     const get_data = getTimeDate(date);
     return postCreation(get_data);
   }
-
-  let handleEnterViewport = function () {
-    updatePlayState(true);
-    
-  };
-  let handleExitViewport = function () {
-    updatePlayState(false);
-    
-  };
   const thumbnail = () => {
     const pattern = /(jpg|jpeg|png|gif|bmp)/;
 
@@ -93,28 +94,45 @@ const Card = (props) => {
     }
 
     if (data.post_hint === "hosted:video") {
-      const video_url = data.hsl_video.reddit_video.fallback_url;
+      const video_url_inside = data.hsl_video.reddit_video.hls_url;
 
       return (
         <Waypoint
-          
-          onEnter={()=>{videoElement.play(); console.log(videoElement)}}
-          onLeave={()=>videoElement.pause()}
+          onEnter={() => {
+            if (videoElement.current !== undefined) {
+              try {
+                videoElement.current.play();
+              } catch (err) {}
+            }
+          }}
+          onLeave={() => {
+            if (videoElement.current !== undefined) {
+              try {
+                videoElement.current.pause();
+              } catch (err) {}
+            }
+          }}
           topOffset="30%"
           bottomOffset="50%"
         >
-          <div className="section-video" onClick={onClickOnVideo}>
+          <div
+            className="section-video"
+            onClick={() => {
+              if (videoElement.current != undefined) {
+                videoElement.current.muted = !videoElement.current.muted;
+              }
+            }}
+          >
             <video
-              style={{ margin: "auto", maxHeight: " 70vh", maxWidth: "560px" }}
+              style={{ margin: "auto", maxHeight: " 500px", maxWidth: "560px" }}
               preload="auto"
-              ref= {(video)=>{videoElement=video; }}
-              muted={unmute}
-              src={video_url}
-              autoPlay
-              type="video/mp4"
-            >
-              <source src={video_url} type="video/mp4" />
-            </video>
+              ref={(video) => {
+                videoElement.current = video;
+              }}
+              width="100%"
+              height="100%"
+              volume={1}
+            ></video>
           </div>
         </Waypoint>
       );
