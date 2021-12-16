@@ -11,7 +11,7 @@ import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ModeCommentIcon from "@material-ui/icons/ModeComment";
 import { numberFormat } from "../../Helper/NumberFormat";
-
+import { useLocation } from "react-router-dom";
 const Card = (props) => {
   let [unmute, updatemuteState] = useState(true);
   let [data, setData] = useState(null);
@@ -21,6 +21,7 @@ const Card = (props) => {
   useEffect(() => {
     setData(props.data);
   }, [props.data]);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (videoElement.current !== undefined) {
@@ -59,7 +60,18 @@ const Card = (props) => {
     }
 
     if (data.post_hint === undefined && data.selfText.length !== 0) {
-      return <p className="selfText">{data.selfText}</p>;
+      if (pathname.match(comment)) {
+        return (
+          <p style={{ WebkitLineClamp: "none" }} className="selfText">
+            {data.selfText}
+          </p>
+        );
+      }
+      return (
+        <p style={{ WebkitLineClamp: 2 }} className="selfText">
+          {data.selfText}
+        </p>
+      );
     }
     if (
       data.post_hint === undefined &&

@@ -28,9 +28,9 @@ const CommentsRow = (props) => {
       </div>
       <div className="comment-upvote">
         <PublishIcon />
-        <p style={{ fontWeight: "bold", fontSize: "1rem" }}>
+        <div style={{ fontWeight: "bold", fontSize: "1rem" }}>
           {numberFormat(comment.ups)}
-        </p>
+        </div>
       </div>
     </div>
   );
