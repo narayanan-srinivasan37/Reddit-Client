@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import ReactPlayer from "react-player/lazy";
+
 import "./Card.css";
 import Hls from "hls.js";
 import Avatar from "@mui/material/Avatar";
@@ -13,7 +13,6 @@ import ModeCommentIcon from "@material-ui/icons/ModeComment";
 import { numberFormat } from "../../Helper/NumberFormat";
 
 const Card = (props) => {
-  let [shouldPlay, updatePlayState] = useState(false);
   let [unmute, updatemuteState] = useState(true);
   let [data, setData] = useState(null);
   let videoElement = useRef();
@@ -31,9 +30,6 @@ const Card = (props) => {
     }
   });
 
-  const onClickOnVideo = () => {
-    updatemuteState(!unmute);
-  };
   /** Set Post time in seonds hours days and month**/
   function get_date(date) {
     const get_data = getTimeDate(date);
@@ -60,8 +56,6 @@ const Card = (props) => {
     }
     if (data.post_hint === "image" && data.isGallery === undefined) {
       return <img className="section-image" src={data.url} alt="none" />;
-    }
-    if (data.isGallery !== undefined) {
     }
 
     if (data.post_hint === undefined && data.selfText.length !== 0) {
@@ -97,21 +91,21 @@ const Card = (props) => {
     }
 
     if (data.post_hint === "hosted:video") {
-      const video_url_inside = data.hsl_video.reddit_video.hls_url;
-
       return (
         <Waypoint
           onEnter={() => {
             if (videoElement.current !== undefined) {
               try {
-                videoElement.current.play();
+                const play = videoElement.current.play();
+                if (play !== undefined) videoElement.current.play();
               } catch (err) {}
             }
           }}
           onLeave={() => {
             if (videoElement.current !== undefined) {
               try {
-                videoElement.current.pause();
+                const pause = videoElement.current.pause();
+                if (pause !== undefined) videoElement.current.pause();
               } catch (err) {}
             }
           }}
@@ -121,8 +115,7 @@ const Card = (props) => {
           <div
             className="section-video"
             onClick={() => {
-              if (videoElement.current != undefined) {
-                updatemuteState(!unmute);
+              if (videoElement.current !== undefined) {
                 videoElement.current.muted = !videoElement.current.muted;
               }
             }}
