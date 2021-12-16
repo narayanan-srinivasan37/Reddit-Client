@@ -186,7 +186,11 @@ const Card = (props) => {
           <div className="header">
             {thumbnail()}
             <div
-              style={{ display: "flex", flexWrap: "wrap", lineHeight: "0rem" }}
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                lineHeight: "0.5rem",
+              }}
             >
               <Link
                 className="card-subreddit"
