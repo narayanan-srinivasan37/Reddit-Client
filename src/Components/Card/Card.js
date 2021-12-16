@@ -54,11 +54,15 @@ const Card = (props) => {
   const sectiondata = () => {
     const image = new Image();
     const comment = /comments/;
+
     if (data.post_hint === "image") {
       image.src = data.url;
     }
     if (data.post_hint === "image" && data.isGallery === undefined) {
       return <img className="section-image" src={data.url} alt="none" />;
+    }
+    if (data.isGallery !== undefined) {
+      console.log(data);
     }
 
     if (data.post_hint === undefined && data.selfText.length !== 0) {
@@ -119,6 +123,7 @@ const Card = (props) => {
             className="section-video"
             onClick={() => {
               if (videoElement.current != undefined) {
+                updatemuteState(!unmute);
                 videoElement.current.muted = !videoElement.current.muted;
               }
             }}
@@ -131,6 +136,7 @@ const Card = (props) => {
               }}
               width="100%"
               height="100%"
+              muted={unmute}
               volume={1}
             ></video>
           </div>

@@ -9,7 +9,7 @@ import UserPage from "../Pages/UserPage/UserPage";
 import ScrollToTop from "../Helper/ScrollToTop";
 const PageRoutes = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <ScrollToTop>
         <Routes>
           <Route path="/" exact element={<HomePage />} />
@@ -25,7 +25,7 @@ const PageRoutes = () => {
             element={<SubRedditPage />}
           />
           <Route path="/user/:username" exact element={<UserPage />} />
-          <Route path="*" element={<RedirectPage />} />
+          <Route element={<RedirectPage />} />
         </Routes>
       </ScrollToTop>
     </Router>
