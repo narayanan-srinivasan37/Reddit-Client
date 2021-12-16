@@ -9,7 +9,7 @@ import UserPage from "../Pages/UserPage/UserPage";
 import ScrollToTop from "../Helper/ScrollToTop";
 const PageRoutes = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <ScrollToTop>
         <Routes>
           <Route path="/" exact element={<HomePage />} />
