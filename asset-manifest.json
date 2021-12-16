@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/reddit-minimal/static/css/main.43b7bbbf.chunk.css",
+    "main.css": "/reddit-minimal/static/css/main.f89d2992.chunk.css",
     "main.js": "/reddit-minimal/static/js/main.ab037764.chunk.js",
     "main.js.map": "/reddit-minimal/static/js/main.ab037764.chunk.js.map",
     "reactPlayerDailyMotion.js": "/reddit-minimal/static/js/reactPlayerDailyMotion.028fc846.chunk.js",
@@ -36,13 +36,13 @@
     "static/js/16.00e721ee.chunk.js": "/reddit-minimal/static/js/16.00e721ee.chunk.js",
     "static/js/16.00e721ee.chunk.js.map": "/reddit-minimal/static/js/16.00e721ee.chunk.js.map",
     "index.html": "/reddit-minimal/index.html",
-    "static/css/main.43b7bbbf.chunk.css.map": "/reddit-minimal/static/css/main.43b7bbbf.chunk.css.map",
+    "static/css/main.f89d2992.chunk.css.map": "/reddit-minimal/static/css/main.f89d2992.chunk.css.map",
     "static/js/15.b54033ba.chunk.js.LICENSE.txt": "/reddit-minimal/static/js/15.b54033ba.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.3d72e68d.js",
     "static/js/15.b54033ba.chunk.js",
-    "static/css/main.43b7bbbf.chunk.css",
+    "static/css/main.f89d2992.chunk.css",
     "static/js/main.ab037764.chunk.js"
   ]
 }
