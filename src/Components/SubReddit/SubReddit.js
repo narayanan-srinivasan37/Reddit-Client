@@ -5,11 +5,10 @@ import { getAllSubReddit } from "../../ReduxStore/Reducers/SubRedditSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { SubRedditLayout } from "../SkeletonFolder/SubReddits/SubRedditLayout";
 import FloatingBar from "../FloatingBar/FloatingBar";
-export default function SubReddit() {
+export default function SubReddit(props) {
   const { isLoading, subredditData } = useSelector((state) => {
     return state.subReddit;
   });
-
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllSubReddit());

@@ -1,13 +1,11 @@
-import React, { useEffect, lazy } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
-
+import Post from "../../Components/Post/Post";
 import ComponentLayout from "../../Components/ComponentLayout/ComponentLayout";
 import { getAllPosts } from "../../ReduxStore/Reducers/PostsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import CardLayout from "../../Components/SkeletonFolder/Card/CardLayout";
 import ErrorCard from "../../Components/Card/ErrorCard/ErrorCard";
-
-const Post = lazy(() => import("../../Components/Post/Post"));
 const HomePage = () => {
   const dispatch = useDispatch();
   const pathname = useParams();
@@ -32,11 +30,9 @@ const HomePage = () => {
     );
   }
   return (
-    <React.Suspense fallback={<CardLayout/>}>
     <ComponentLayout sideBarProps={{ filter: true }}>
       {postsData && <Post postData={postsData} />}
     </ComponentLayout>
-    </React.Suspense>
   );
 };
 export default HomePage;
