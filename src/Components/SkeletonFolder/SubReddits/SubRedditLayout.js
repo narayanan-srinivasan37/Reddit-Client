@@ -5,11 +5,11 @@ const SubRedditLayoutRow = () => {
   return (
     <div style={{ display: "flex", paddingLeft: '10px' }}>
       <SkeletonElement type="avatar" />
-      <div style={{ width: "100%" ,paddingLeft:'10px'}}>
+      <div style={{ width: "100%" ,paddingLeft:'10px',paddingRight:'10px'}}>
         <SkeletonElement type="skeleton-title" />
-        <div style={{padddingLeft:'10px'}}>
+        
         <SkeletonElement type="text" />
-        </div>
+        
       </div>
     </div>
   );
