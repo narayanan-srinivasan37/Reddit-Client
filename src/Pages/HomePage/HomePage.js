@@ -21,7 +21,7 @@ const HomePage = () => {
    
     return <ErrorCard error={error.message}/>;
   }
-  if (isLoading) {
+  if (isLoading || !isLoading) {
     return (
       <ComponentLayout sideBarProps={{ filter: true }}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (

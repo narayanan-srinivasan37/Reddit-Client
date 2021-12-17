@@ -20,7 +20,7 @@ const Card = (props) => {
   const hls = new Hls();
   useEffect(() => {
     setData(props.data);
-  }, [props.data]);
+  }, []);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -201,7 +201,7 @@ const Card = (props) => {
               style={{
                 display: "flex",
                 flexWrap: "wrap",
-                lineHeight: "0.5rem",
+                lineHeight: "0rem",
               }}
             >
               <Link
