@@ -11,6 +11,7 @@ export default function SubRowDisplay(props) {
       return (
         <img
           className="display-icon"
+          
           src={props.displayImg}
           alt={props.displayName}
         />

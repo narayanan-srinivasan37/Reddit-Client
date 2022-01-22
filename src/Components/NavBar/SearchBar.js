@@ -1,78 +1,135 @@
-import React  from "react";
-import AsyncSelect from "react-select/async";
-import { components} from "react-select";
-import { redditSearch } from "../../API_Calls/RedditApiCalls";
-import { HiOutlineSearch } from "react-icons/hi";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
+import { components } from "react-select";
+import { redditSearch } from "../../API_Calls/RedditApiCalls";
+import CircularProgress from "@mui/material/CircularProgress";
+import { useNavigate } from "react-router-dom";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import "./NavBar.css";
 import SubRowDisplay from "../SubRowDisplay/SubRowDisplay";
-const DropdownIndicator = (props) => {
-  return (
-    <components.DropdownIndicator s {...props}>
-      <HiOutlineSearch label="" />
-    </components.DropdownIndicator>
-  );
-};
 
-const Menu = (props) => {
-  if (props.options.length === 0) {
-    return <components.Menu {...props}>{props.children}</components.Menu>;
-  }
-  return (
-    <components.Menu {...props}>
-      {
-        <div
-          style={{ height: "300px", overflowY: "scroll", overflowX: "hidden" }}
-        >
-          {props.options.map((option, index) => {
-            return <SubRowDisplay key={index} {...option} />;
-          })}
-        </div>
-      }
-    </components.Menu>
-  );
-};
+const data = [
+  {
+    id: 0,
+    name: "Cornelia Leon",
+  },
+  {
+    id: 1,
+    name: "Joyce Shepard",
+  },
+  {
+    id: 2,
+    name: "Beatriz Davenport",
+  },
+  {
+    id: 3,
+    name: "Narayanaan",
+  },
+  {
+    id: 4,
+    name: "Balaji",
+  },
+  {
+    id: 5,
+    name: "Seshan",
+  },
+];
+
 const SearchBar = () => {
   const navigate = useNavigate();
-  const handleChange = (inputvalue, { action }) => {
-    if (action === "set-value") {
-      return "";
+  const [query, setQuery] = useState("");
+  const [display, setDisplay] = useState(false);
+  const [options, setOptions] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const displayOptions = () => {
+    if (options.length === 0) {
+      return (
+        <div className="search-results">
+          <p>Searching...</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="search-results-options">
+          {options.map((option, index) => {
+            return (
+              <div
+                onClick={() => {
+                  navigate(`/subreddit/${option.displayName}`);
+                }}
+              >
+                <SubRowDisplay key={index} {...option} />
+              </div>
+            );
+          })}
+        </div>
+      );
     }
-    return inputvalue;
   };
 
-  const loadOptions = async (inputValue, callback) => {
-    if (inputValue.length < 3 || !inputValue) {
-      callback([]);
+  const loadOptions = async (query) => {
+    try {
+      const response = await redditSearch(query);
+      const result = response.data.children.map((data) => {
+        return {
+          displayName: data.data.display_name,
+          value: data.data.display_name,
+          subscribersCount: data.data.subscribers,
+          displayImg: data.data.icon_img,
+        };
+      });
+      setOptions(result);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
     }
-    const response = await redditSearch(inputValue);
-    const result = response.data.children.map((data) => {
-      return {
-        displayName: data.data.display_name,
-        value: data.data.display_name,
-        subscribersCount: data.data.subscribers,
-        displayImg: data.data.icon_img,
-      };
-    });
-
-    callback(result);
   };
+
   return (
-    <div style={{ width: "100%" }}>
-      <AsyncSelect
-        loadOptions={loadOptions}
-        onInputChange={handleChange}
-        defaultOptions
-        value=""
-        components={{ DropdownIndicator, Menu }}
-        onChange={(e, { action }) => {
-          navigate(`/subreddit/${e.value}`);
-        }}
-        placeholder="Search"
-      />
+    <div className="search-bar">
+      <div className="search-input-div">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            border: "1px solid black",
+          }}
+        >
+          <input
+            className="search-input"
+            type="text"
+            placeholder="search.."
+            value={query}
+            onBlur={() => {
+              setTimeout(() => {
+                setDisplay(false);
+                setLoading(false);
+              }, 200);
+            }}
+            onChange={(e) => {
+              if (e.target.value.length > 0) {
+                setDisplay(true);
+                setLoading(true);
+                if (e.target.value.length > 2) loadOptions(e.target.value);
+                else setOptions([]);
+              } else {
+                setDisplay(false);
+                setLoading(false);
+              }
+              setQuery(e.target.value);
+            }}
+          />
+          {loading && (
+            <CircularProgress
+              style={{ marginRight: "0.3rem" }}
+              size={20}
+              color="inherit"
+            />
+          )}
+        </div>
+        <div className="search-results">{display && displayOptions()}</div>
+      </div>
     </div>
   );
 };
-
 export default SearchBar;

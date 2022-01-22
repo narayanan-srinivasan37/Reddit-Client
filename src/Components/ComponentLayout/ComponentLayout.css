@@ -1,12 +1,12 @@
 .main-content {
   display: flex;
   max-width: 100%;
-  justify-content: space-between;
-  padding: 20px 0 0;
-  margin: 0 10px;
+
+  padding: 0..4rem 0 0;
+  margin: 0 0.3rem;
 }
 .section-content {
-  width: 99%;
+  width: 100%;
   margin-top: 0px;
   position: relative;
   flex-direction: column;
@@ -16,5 +16,11 @@
   .main-content {
     display: flex;
     flex-direction: column-reverse;
+  }
+  .section-content{
+    width: 100%;
+  margin-top: 0px;
+  position: relative;
+  flex-direction: column;
   }
 }

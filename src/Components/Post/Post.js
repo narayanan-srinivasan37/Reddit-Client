@@ -36,12 +36,6 @@ export default function Post(props) {
       {data.map((data, index) => {
         return <Card key={index} data={data} />;
       })}
-      {
-        data.length===0 &&<div>No Posts</div>
-      }
     </div>
   );
 }
-Post.defaultProps = {
-  postsData: [],
-};

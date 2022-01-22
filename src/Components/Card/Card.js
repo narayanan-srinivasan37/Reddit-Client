@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-
 import "./Card.css";
 import Hls from "hls.js";
 import Avatar from "@mui/material/Avatar";
@@ -13,7 +12,6 @@ import ModeCommentIcon from "@material-ui/icons/ModeComment";
 import { numberFormat } from "../../Helper/NumberFormat";
 import { useLocation } from "react-router-dom";
 const Card = (props) => {
-  let [unmute, updatemuteState] = useState(true);
   let [data, setData] = useState(null);
   let videoElement = useRef();
 
@@ -30,7 +28,6 @@ const Card = (props) => {
       hls.attachMedia(videoElement.current);
     }
   });
-
   /** Set Post time in seonds hours days and month**/
   function get_date(date) {
     const get_data = getTimeDate(date);
@@ -40,12 +37,14 @@ const Card = (props) => {
     const pattern = /(jpg|jpeg|png|gif|bmp)/;
 
     const image = new Image();
-    image.src = data.url;
+    if (data.url.match(pattern)) {
+      image.src = data.url;
 
-    if (data.url.match(pattern) && image.height !== 0) {
-      return <Avatar alt={data.title} src={data.url} />;
+      if (image.height !== 0) {
+        return <Avatar alt={data.title} src={data.url} />;
+      }
     } else {
-      return <Avatar>{data.author[0]}</Avatar>;
+      return <Avatar>{data.author[0].toUpperCase()}</Avatar>;
     }
   };
   const sectiondata = () => {
@@ -62,14 +61,14 @@ const Card = (props) => {
     if (data.post_hint === undefined && data.selfText.length !== 0) {
       if (pathname.match(comment)) {
         return (
-          <p style={{ WebkitLineClamp: "none" }} className="selfText">
+          <p style={{ WebkitLineClamp: "none",fontSize:'0.8rem', margin:'0 0 0.2rem 0.2rem' }} >
             {data.selfText}
           </p>
         );
       }
       return (
         <p style={{ WebkitLineClamp: 2 }} className="selfText">
-          {data.selfText}
+         {data.selfText.substring(0,100)}...
         </p>
       );
     }
@@ -80,7 +79,7 @@ const Card = (props) => {
     ) {
       return (
         <div className="section-link">
-          <a rel="noopener" href={data.url}>
+          <a rel="noopener" target='_blank' href={data.url}>
             <div className="external-link">
               <BsLink style={{ paddingRight: 5 }} />
               External Link
@@ -110,7 +109,9 @@ const Card = (props) => {
               try {
                 const play = videoElement.current.play();
                 if (play !== undefined) videoElement.current.play();
-              } catch (err) {}
+              } catch (err) {
+                throw new Error(err)
+              }
             }
           }}
           onLeave={() => {
@@ -118,7 +119,9 @@ const Card = (props) => {
               try {
                 const pause = videoElement.current.pause();
                 if (pause !== undefined) videoElement.current.pause();
-              } catch (err) {}
+              } catch (err) {
+                throw new Error(err)
+              }
             }
           }}
           topOffset="30%"
@@ -140,7 +143,6 @@ const Card = (props) => {
               }}
               width="100%"
               height="100%"
-              muted={unmute}
               volume={1}
             ></video>
           </div>

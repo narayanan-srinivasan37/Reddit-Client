@@ -12,8 +12,13 @@ const HomePage = () => {
   const { isLoading, isError, postsData, error } = useSelector(
     (state) => state.posts
   );
+
   useEffect(() => {
-    dispatch(getAllPosts(pathname.filtertype));
+    const actionDispatch = () => {
+      dispatch(getAllPosts(pathname.filtertype));
+    };
+    actionDispatch();
+
     return () => {};
   }, [pathname.filtertype]);
 
@@ -29,9 +34,14 @@ const HomePage = () => {
       </ComponentLayout>
     );
   }
+
   return (
     <ComponentLayout sideBarProps={{ filter: true }}>
-      {postsData && <Post postData={postsData} />}
+      {postsData ? <Post postData={postsData} /> : <ComponentLayout sideBarProps={{ filter: true }}>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((index) => (
+          <CardLayout key={index} />
+        ))}
+      </ComponentLayout>}
     </ComponentLayout>
   );
 };

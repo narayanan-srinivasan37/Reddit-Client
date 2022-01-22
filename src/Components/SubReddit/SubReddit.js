@@ -44,7 +44,7 @@ export default function SubReddit(props) {
     <>
       <div className="sub-reddit" id="sub-reddit-display">
         <div className="sub-reddit-title">
-          <p>Sub Reddit</p>
+          <p style={{}}>Sub Reddit</p>
           <hr />
         </div>
         <div>

@@ -1,6 +1,9 @@
 .sub-reddit-title p {
   text-transform: uppercase;
-  padding-left: 3px;
+  padding-left: 0.7rem;
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 0;
 }
 .sub-reddit {
 
@@ -8,7 +11,6 @@
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
   max-width: 100%;
- 
   height: fit-content;
   margin-top: 10px;
 
