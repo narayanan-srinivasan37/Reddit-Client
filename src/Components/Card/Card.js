@@ -27,7 +27,7 @@ const Card = (props) => {
       hls.loadSource(video_url);
       hls.attachMedia(videoElement.current);
     }
-  });
+  }, [videoElement.current]);
   /** Set Post time in seonds hours days and month**/
   function get_date(date) {
     const get_data = getTimeDate(date);
@@ -61,14 +61,20 @@ const Card = (props) => {
     if (data.post_hint === undefined && data.selfText.length !== 0) {
       if (pathname.match(comment)) {
         return (
-          <p style={{ WebkitLineClamp: "none",fontSize:'0.8rem', margin:'0 0 0.2rem 0.2rem' }} >
+          <p
+            style={{
+              WebkitLineClamp: "none",
+              fontSize: "0.8rem",
+              margin: "0 0 0.2rem 0.2rem",
+            }}
+          >
             {data.selfText}
           </p>
         );
       }
       return (
         <p style={{ WebkitLineClamp: 2 }} className="selfText">
-         {data.selfText.substring(0,100)}...
+          {data.selfText.substring(0, 100)}...
         </p>
       );
     }
@@ -79,7 +85,7 @@ const Card = (props) => {
     ) {
       return (
         <div className="section-link">
-          <a rel="noopener" target='_blank' href={data.url}>
+          <a rel="noopener" target="_blank" href={data.url}>
             <div className="external-link">
               <BsLink style={{ paddingRight: 5 }} />
               External Link
@@ -106,21 +112,22 @@ const Card = (props) => {
         <Waypoint
           onEnter={() => {
             if (videoElement.current !== undefined) {
-              try {
-                const play = videoElement.current.play();
-                if (play !== undefined) videoElement.current.play();
-              } catch (err) {
-                throw new Error(err)
+              const play = videoElement.current.play();
+
+              if (play !== undefined) {
+                play.then(() => videoElement.current.play()).catch((err) => {});
               }
             }
           }}
           onLeave={() => {
             if (videoElement.current !== undefined) {
-              try {
-                const pause = videoElement.current.pause();
-                if (pause !== undefined) videoElement.current.pause();
-              } catch (err) {
-                throw new Error(err)
+              const pause = videoElement.current.pause();
+              if (pause !== undefined) {
+                pause
+                  .then(() => videoElement.current.pause())
+                  .catch((err) => {});
+                {
+                }
               }
             }
           }}

@@ -22,15 +22,12 @@ const CommentsPage = () => {
   }, []);
 
   if (isError) {
-    console.log(error)
-    return <ErrorCard error={error.message}/>;
+    return <ErrorCard error={error.message} />;
   }
   if (isLoading) {
     return (
       <ComponentLayout sideBarProps={{ filter: false }}>
-        <div
-          style={{ display: "flex", flexDirection: "column" }}
-        >
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <CardLayout />
           {[1, 2, 3, 4, 5, 6].map((index) => (
             <CommentsLayout key={index} />
