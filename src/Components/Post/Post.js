@@ -6,8 +6,10 @@ export default function Post(props) {
   const [data, setData] = useState([]);
   useEffect(() => {
     const data = props.postData;
+   
     const filterdata = data.filter((data) => data.kind === "t3");
     const filteredData = filterdata.map((data) => {
+     
       return {
         author: data.data.author,
         title: data.data.title,

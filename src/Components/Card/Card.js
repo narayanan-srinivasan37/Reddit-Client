@@ -4,6 +4,7 @@ import Hls from "hls.js";
 import Avatar from "@mui/material/Avatar";
 import { BsLink } from "react-icons/bs";
 import { Waypoint } from "react-waypoint";
+import VideoPlayer from "react-video-js-player";
 import { Link } from "react-router-dom";
 import { getTimeDate, postCreation } from "../../Helper/time";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
@@ -13,21 +14,26 @@ import { numberFormat } from "../../Helper/NumberFormat";
 import { useLocation } from "react-router-dom";
 const Card = (props) => {
   let [data, setData] = useState(null);
-  let videoElement = useRef();
 
-  const hls = new Hls();
+  var hls = null;
+
   useEffect(() => {
     setData(props.data);
   }, []);
   const { pathname } = useLocation();
 
+  let videoElement = useRef();
+
   useEffect(() => {
+    if (Hls.isSupported) {
+      hls = new Hls();
+    }
     if (videoElement.current !== undefined) {
       const video_url = data.hsl_video.reddit_video.hls_url;
       hls.loadSource(video_url);
       hls.attachMedia(videoElement.current);
     }
-  }, [videoElement.current]);
+  }, [data]);
   /** Set Post time in seonds hours days and month**/
   function get_date(date) {
     const get_data = getTimeDate(date);
@@ -150,6 +156,7 @@ const Card = (props) => {
               }}
               width="100%"
               height="100%"
+              type="application/x-mpegurl"
               volume={1}
             ></video>
           </div>
