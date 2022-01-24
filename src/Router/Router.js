@@ -17,6 +17,7 @@ const PageRoutes = () => {
       <Router>
         <ScrollToTop>
           <Routes>
+ <Route path='*'  element={<RedirectPage />} />
             <Route path="/" exact element={<HomePage />} />
             <Route
               path="/:subreddit/comments/:id"
@@ -30,7 +31,7 @@ const PageRoutes = () => {
               element={<SubRedditPage />}
             />
             <Route path="/user/:username" exact element={<UserPage />} />
-            <Route element={<RedirectPage />} />
+           
           </Routes>
         </ScrollToTop>
       </Router>
