@@ -45,9 +45,12 @@ const Card = (props) => {
     const image = new Image();
     if (data.url.match(pattern)) {
       image.src = data.url;
-
-      if (image.height !== 0) {
+      const height = image.height;
+     
+      if (height > 0) {
         return <Avatar alt={data.title} src={data.url} />;
+      } else {
+        return <Avatar>{data.author[0].toUpperCase()}</Avatar>;
       }
     } else {
       return <Avatar>{data.author[0].toUpperCase()}</Avatar>;
