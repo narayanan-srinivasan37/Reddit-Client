@@ -1,28 +1,28 @@
 {
   "files": {
     "main.css": "/reddit-minimal/static/css/main.245e621b.chunk.css",
-    "main.js": "/reddit-minimal/static/js/main.8bd8a37e.chunk.js",
-    "main.js.map": "/reddit-minimal/static/js/main.8bd8a37e.chunk.js.map",
-    "runtime-main.js": "/reddit-minimal/static/js/runtime-main.35fbe9c2.js",
-    "runtime-main.js.map": "/reddit-minimal/static/js/runtime-main.35fbe9c2.js.map",
-    "static/js/2.12a40834.chunk.js": "/reddit-minimal/static/js/2.12a40834.chunk.js",
-    "static/js/2.12a40834.chunk.js.map": "/reddit-minimal/static/js/2.12a40834.chunk.js.map",
+    "main.js": "/reddit-minimal/static/js/main.06a5e6d8.chunk.js",
+    "main.js.map": "/reddit-minimal/static/js/main.06a5e6d8.chunk.js.map",
+    "runtime-main.js": "/reddit-minimal/static/js/runtime-main.2b2b0813.js",
+    "runtime-main.js.map": "/reddit-minimal/static/js/runtime-main.2b2b0813.js.map",
+    "static/js/2.102c59bc.chunk.js": "/reddit-minimal/static/js/2.102c59bc.chunk.js",
+    "static/js/2.102c59bc.chunk.js.map": "/reddit-minimal/static/js/2.102c59bc.chunk.js.map",
     "static/css/3.55f7c574.chunk.css": "/reddit-minimal/static/css/3.55f7c574.chunk.css",
-    "static/js/3.4309c2f3.chunk.js": "/reddit-minimal/static/js/3.4309c2f3.chunk.js",
-    "static/js/3.4309c2f3.chunk.js.map": "/reddit-minimal/static/js/3.4309c2f3.chunk.js.map",
-    "static/js/4.cfa5bbf9.chunk.js": "/reddit-minimal/static/js/4.cfa5bbf9.chunk.js",
-    "static/js/4.cfa5bbf9.chunk.js.map": "/reddit-minimal/static/js/4.cfa5bbf9.chunk.js.map",
+    "static/js/3.ed7d18c3.chunk.js": "/reddit-minimal/static/js/3.ed7d18c3.chunk.js",
+    "static/js/3.ed7d18c3.chunk.js.map": "/reddit-minimal/static/js/3.ed7d18c3.chunk.js.map",
+    "static/js/4.067a8605.chunk.js": "/reddit-minimal/static/js/4.067a8605.chunk.js",
+    "static/js/4.067a8605.chunk.js.map": "/reddit-minimal/static/js/4.067a8605.chunk.js.map",
     "static/js/5.f387a585.chunk.js": "/reddit-minimal/static/js/5.f387a585.chunk.js",
     "static/js/5.f387a585.chunk.js.map": "/reddit-minimal/static/js/5.f387a585.chunk.js.map",
     "index.html": "/reddit-minimal/index.html",
     "static/css/3.55f7c574.chunk.css.map": "/reddit-minimal/static/css/3.55f7c574.chunk.css.map",
     "static/css/main.245e621b.chunk.css.map": "/reddit-minimal/static/css/main.245e621b.chunk.css.map",
-    "static/js/2.12a40834.chunk.js.LICENSE.txt": "/reddit-minimal/static/js/2.12a40834.chunk.js.LICENSE.txt"
+    "static/js/2.102c59bc.chunk.js.LICENSE.txt": "/reddit-minimal/static/js/2.102c59bc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.35fbe9c2.js",
-    "static/js/2.12a40834.chunk.js",
+    "static/js/runtime-main.2b2b0813.js",
+    "static/js/2.102c59bc.chunk.js",
     "static/css/main.245e621b.chunk.css",
-    "static/js/main.8bd8a37e.chunk.js"
+    "static/js/main.06a5e6d8.chunk.js"
   ]
 }
